@@ -47,7 +47,7 @@ int CalPowOfInt(char str[],int power,int strLength){
 		firstNumber+=(int)tmp;
     }
     //对幂进行判断
-    if(power==0){
+    if(power==0){                           //幂为0
         for(i=0;i<strLength;i++){
             if(temp[i]!=0){
                 zeroFlag=1;
@@ -60,7 +60,7 @@ int CalPowOfInt(char str[],int power,int strLength){
             printf("0");
         }
         return 0;
-    }else if(power==1){
+    }else if(power==1){                 //幂为1
         for(i=strLength-1;i>=0;i--){       //从高位往低位找出第一个不为0的数组下标
             if(temp[i]!=0){
                 firstNotZeroIndex=i;
@@ -76,7 +76,7 @@ int CalPowOfInt(char str[],int power,int strLength){
             }
         }
     }else{
-        for(n=1;n<power;n++){
+        for(n=1;n<power;n++){             //幂大于等于2
             //temp数组中的每一位数乘以number的数
             for(i=0;i<125;i++){
                 temp[i]*=firstNumber;
@@ -89,14 +89,14 @@ int CalPowOfInt(char str[],int power,int strLength){
                 temp[i+1]+=temp_number/10;
             }
         }
-        for(i=124;i>=0;i--){
+        for(i=124;i>=0;i--){              //查找从高位到地位第一个不为0的数组下标
             if(temp[i]!=0){
                 firstNotZeroIndex=i;
                 break;
             }
             firstNotZeroIndex=-1;
         }
-        if(firstNotZeroIndex==-1){
+        if(firstNotZeroIndex==-1){          //输出结果
             printf("0");
         }else{
             for(i=firstNotZeroIndex;i>=0;i--){
@@ -132,7 +132,7 @@ int CalPowOfdcml(char str[],int power,int strLength){
     //}
 
     //对幂指数的不同进行分类
-    if(power==0){
+    if(power==0){                        //幂为0
         for(i=0;i<strLength-1;i++){
             if(temp[i]!=0){
                 zeroFlag=1;
@@ -145,10 +145,10 @@ int CalPowOfdcml(char str[],int power,int strLength){
             printf("0");
         }
         return 0;
-    }else if(power==1){
+    }else if(power==1){                 //幂为1
         for(i=0;i<pointIndex;i++){
             if(str[i]!='0'){
-                lNotZeroIndex=i;
+                lNotZeroIndex=i;        
                 break;
             }
         }
@@ -158,7 +158,7 @@ int CalPowOfdcml(char str[],int power,int strLength){
                 break;
             }
         }
-        if(lNotZeroIndex==-1){
+        if(lNotZeroIndex==-1){          
             if(rNotZeroIndex==-1){
                 printf("0");
             }else{
@@ -180,7 +180,7 @@ int CalPowOfdcml(char str[],int power,int strLength){
         }
         return 0;
     }else{
-        for(n=1;n<power;n++){
+        for(n=1;n<power;n++){                  //幂大于等于2
         //temp数组中的每一位数乘以number的数
             for(i=0;i<125;i++){
                 temp[i]*=firstNumber;
@@ -210,7 +210,7 @@ int CalPowOfdcml(char str[],int power,int strLength){
                 break;
             }
         }
-	//整数部分第一个不为0的数组下标
+	//小数部分第一个不为0的数组下标
         for(i=124;i>intPartCount-1;i--){
              if(result[i]!=0){
                 rNotZeroIndex=i;
